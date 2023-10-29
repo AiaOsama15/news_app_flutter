@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app_cubit/cubit/cubit.dart';
 import 'package:news_app_cubit/cubit/states.dart';
 import 'package:news_app_cubit/widget/build_item_news.dart';
 import 'package:news_app_cubit/widget/custom_text_field.dart';
 
+
+// ignore: must_be_immutable
 class SearchView extends StatelessWidget {
+
   SearchView({super.key});
   TextEditingController searchController = TextEditingController();
   @override

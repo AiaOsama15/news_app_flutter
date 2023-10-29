@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_cubit/views/wev_view.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 Widget buildItemOfNews({required Map mapOneItem, context}) {
   Map listOneItem = mapOneItem;
@@ -8,8 +7,8 @@ Widget buildItemOfNews({required Map mapOneItem, context}) {
     onTap: () {
       Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (BuildContext context) => WebViewscreen(
-            uri:listOneItem["url"]),
+          builder: (BuildContext context) =>
+              WebViewscreen(uri: listOneItem["url"]),
         ),
       );
     },

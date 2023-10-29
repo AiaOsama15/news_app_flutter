@@ -10,12 +10,12 @@ buildscript {
     }
   
 }
-  android {
-    defaultConfig {
-        minSdkVersion 19 
-        targetSdkVersion 30
-    }
-}
+//   android {
+//     defaultConfig {
+//         minSdkVersion 19 
+//         targetSdkVersion 30
+//     }
+// }
 
 allprojects {
     repositories {
