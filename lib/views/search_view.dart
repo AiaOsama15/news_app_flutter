@@ -5,12 +5,19 @@ import 'package:news_app_cubit/cubit/states.dart';
 import 'package:news_app_cubit/widget/build_item_news.dart';
 import 'package:news_app_cubit/widget/custom_text_field.dart';
 
-
 // ignore: must_be_immutable
-class SearchView extends StatelessWidget {
+class SearchView extends StatefulWidget {
+  const SearchView({super.key});
 
-  SearchView({super.key});
+  @override
+  State<SearchView> createState() => _SearchViewState();
+}
+
+class _SearchViewState extends State<SearchView> {
+  GlobalKey<FormState> myFormKey = GlobalKey();
+
   TextEditingController searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CubitNews, States>(
@@ -24,8 +31,8 @@ class SearchView extends StatelessWidget {
                   children: [
                     customTextField(
                         labeltext: 'search',
-                        controller: searchController,
                         onChanged: (value) {
+                          setState(() {});
                           print(value);
                           CubitNews.get(context).getSearchDate(value);
                         }),
@@ -40,19 +47,21 @@ class SearchView extends StatelessWidget {
                               ),
                             ],
                           )
-                        : ListView.separated(
-                            itemBuilder: (context, int index) {
-                              return buildItemOfNews(
-                                  mapOneItem: CubitNews.get(context)
-                                      .listSearchDate![index]);
-                            },
-                            separatorBuilder: (context, int index) {
-                              return const Divider(
-                                height: 2,
-                                color: Colors.grey,
-                              );
-                            },
-                            itemCount: 12),
+                        : Expanded(
+                            child: ListView.separated(
+                                itemBuilder: (context, int index) {
+                                  return buildItemOfNews(
+                                      mapOneItem: CubitNews.get(context)
+                                          .listSearchDate![index]);
+                                },
+                                separatorBuilder: (context, int index) {
+                                  return const Divider(
+                                    height: 2,
+                                    color: Colors.grey,
+                                  );
+                                },
+                                itemCount: 12),
+                          ),
                   ],
                 ),
               )),

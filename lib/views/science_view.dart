@@ -23,16 +23,18 @@ class ScienceView extends StatelessWidget {
       return CubitNews.get(context).listOfSienceDate == null
           ? const Scaffold(
               body: Center(
-                  child: CircularProgressIndicator(
-                color: Color.fromARGB(255, 209, 25, 212),
-              ),),
+                child: CircularProgressIndicator(
+                  color: Color.fromARGB(255, 209, 25, 212),
+                ),
+              ),
             )
           : Scaffold(
               body: ListView.separated(
                   itemBuilder: (context, int index) {
                     return buildItemOfNews(
                         mapOneItem:
-                            CubitNews.get(context).listOfSienceDate![index]);
+                            CubitNews.get(context).listOfSienceDate![index],
+                        context: context);
                   },
                   separatorBuilder: (context, int index) {
                     return const Divider(

@@ -18,7 +18,7 @@ Widget buildItemOfNews({required Map mapOneItem, context}) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 120,
+              height: 150,
               width: 120,
               decoration: BoxDecoration(
                 color: Colors.black,
@@ -53,6 +53,7 @@ Widget buildItemOfNews({required Map mapOneItem, context}) {
                   //fromat date
                   Text(
                     '${listOneItem["publishedAt"]}',
+                    maxLines: 1,
                     style: const TextStyle(
                       fontSize: 15,
                     ),

@@ -44,7 +44,7 @@ class CubitNews extends Cubit<States> {
     emit(LoadingState());
     DioHelper.getDate(url: 'v2/top-headlines', queryParameter: {
       'country': 'us',
-      'category': 'sports',
+      'category': 'business',
       'apiKey': '65f7f556ec76449fa7dc7c0069f040ca',
     }).then((value) {
       listOfBussinessDate = value.data["articles"];
@@ -62,7 +62,7 @@ class CubitNews extends Cubit<States> {
     emit(LoadingSportState());
     DioHelper.getDate(url: 'v2/top-headlines', queryParameter: {
       'country': 'us',
-      'category': 'science',
+      'category': 'sport',
       'apiKey': '65f7f556ec76449fa7dc7c0069f040ca',
     }).then((value) {
       listOfSportsDate = value.data["articles"];
@@ -97,7 +97,7 @@ class CubitNews extends Cubit<States> {
   changeMood({bool? savedMood}) {
     if (savedMood != null) {
       isDark = savedMood;
-      ChangeMoodState();
+      emit(ChangeMoodState());
     } else {
       isDark = !isDark;
       Cash.setDateToShared(

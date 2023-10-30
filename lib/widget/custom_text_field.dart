@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-Widget customTextField({String? labeltext, 
-TextEditingController? controller,
-    Function(String)? onChanged}) {
+Widget customTextField({String? labeltext, Function(String)? onChanged}) {
   return TextFormField(
     validator: (value) {
       if (value!.isEmpty) {
@@ -13,8 +11,8 @@ TextEditingController? controller,
       }
     },
     onChanged: onChanged,
-    keyboardType: TextInputType.text,
-    controller: controller,
+    // keyboardType: TextInputType.text,
+
     decoration: InputDecoration(
       labelText: labeltext,
       prefixIcon: const Icon(Icons.search),

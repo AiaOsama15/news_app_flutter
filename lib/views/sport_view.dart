@@ -33,7 +33,8 @@ class SportView extends StatelessWidget {
                   itemBuilder: (context, int index) {
                     return buildItemOfNews(
                         mapOneItem:
-                            CubitNews.get(context).listOfSportsDate![index]);
+                            CubitNews.get(context).listOfSportsDate![index],
+                        context: context);
                   },
                   separatorBuilder: (context, int index) {
                     return const Divider(

@@ -33,7 +33,8 @@ class BussinessView extends StatelessWidget {
                   itemBuilder: (context, int index) {
                     return buildItemOfNews(
                         mapOneItem:
-                            CubitNews.get(context).listOfBussinessDate![index]);
+                            CubitNews.get(context).listOfBussinessDate![index],
+                        context: context);
                   },
                   separatorBuilder: (context, int index) {
                     return const Divider(
@@ -41,7 +42,8 @@ class BussinessView extends StatelessWidget {
                       color: Colors.grey,
                     );
                   },
-                  itemCount: 12));
+                  itemCount:
+                      CubitNews.get(context).listOfBussinessDate!.length));
     });
   }
 }

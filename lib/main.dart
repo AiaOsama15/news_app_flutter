@@ -11,12 +11,13 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   DioHelper.init();
   Cash.init();
-  var savedMood = Cash.getDateFromShared(keyofsetDateToShared: 'isDark');
+  bool savedMood =
+      Cash.getDateFromShared(keyofsetDateToShared: 'isDark') as bool;
   runApp(
     BlocProvider(
       create: (context) => CubitNews()
         ..getBussinessDate()
-        ..changeMood(),
+        ..changeMood(savedMood: savedMood),
       child: MyApp(savedMood),
     ),
   );
@@ -38,8 +39,8 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
             debugShowCheckedModeBanner: false,
             themeMode: CubitNews.get(context).isDark
-                ? ThemeMode.dark
-                : ThemeMode.light,
+                ? ThemeMode.light
+                : ThemeMode.dark,
             title: 'Flutter Demo',
             darkTheme: ThemeData(
               scaffoldBackgroundColor: Colors.black38,
